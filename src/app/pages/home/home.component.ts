@@ -14,13 +14,18 @@ export class HomeComponent implements OnInit {
   booksByCategory: any;
   booksByAuthor: any;
   booksByPublisher: any;
+
+  category:any;
+  author:any;
+  publisher:any;
+
+
   constructor( private adminService: AdminService, private userService:UserService) {
-    
    }
 
   ngOnInit(): void {
     this.getAllBooks();
-    this.getBooksByCategory();
+    
   }
 
 
@@ -34,21 +39,22 @@ export class HomeComponent implements OnInit {
   }
 
   getBooksByCategory(){
-    this.userService.getBooksByCategory({category:"Mystery"}).subscribe(
+    this.booksByCategory = []
+    this.userService.getBooksByCategory({category:this.category}).subscribe(
       (data) => {
         this.booksByCategory = data;
       }
     )
   }
   getBooksByAuthor(){
-    this.userService.getBooksByCategory({author:"Mystery"}).subscribe(
+    this.userService.getBooksByAuthor({author:this.author}).subscribe(
       (data) => {
         this.booksByAuthor = data;
       }
     )
   }
   getBooksByPublisher(){
-    this.userService.getBooksByCategory({publisher:"Mystery"}).subscribe(
+    this.userService.getBooksByPublisher({publisher:this.publisher}).subscribe(
       (data) => {
         this.booksByPublisher = data;
       }

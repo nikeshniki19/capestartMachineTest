@@ -49,14 +49,14 @@ export class UserService {
       'Authorization': `Bearer ${this.token}` });
     return this.http.post<any>(`${this.url}/api/books/category/${this.user_id}`,category,{headers:headers})
   }
-  getBooksByAuthor(){
+  getBooksByAuthor(author){
     let headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}` });
-    return this.http.get<any>(`${this.url}/api/books/author/${this.user_id}`,{headers:headers})
+    return this.http.post<any>(`${this.url}/api/books/author/${this.user_id}`,author,{headers:headers})
   }
-  getBooksByPublisher(){
+  getBooksByPublisher(publisher){
     let headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}` });
-    return this.http.get<any>(`${this.url}/api/books/publisher/${this.user_id}`,{headers:headers})
+    return this.http.post<any>(`${this.url}/api/books/publisher/${this.user_id}`,publisher,{headers:headers})
   }
 }
