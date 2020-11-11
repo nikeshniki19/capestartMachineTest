@@ -1,0 +1,47 @@
+<div class="container-fluid m-3">
+    <div class="jumbotron text-center">
+        <h2 class="display-4">Books Management</h2>
+        <p class="lead">Create, update or delete books here!</p>
+    </div>
+    <div class="container p-4 bg-info">
+        
+        <h4>Manage Books</h4>
+        <div class="row m-2">            
+            <div class="col-md-6">
+              <p class="lead text center">Total {{books.length}} Books</p>
+            </div>            
+            <div class="col-md-6 text-right">
+                <a class="btn btn-warning" routerLink="/create-book">Create Book</a>
+            </div>            
+        </div>
+        
+        <div *ngIf="books" class="row bg-light rounded m-2">
+            <div class="col">                
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Book Name</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Publisher</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let book of books">
+                      <td>{{book.name}}</td>
+                      <td>{{book.author}}</td>
+                      <td>{{book.publisher}}</td>
+                      <td><a routerLink="/update-book/{{book._id}}" class="btn btn-success">
+                        <span class="">Update</span>
+                    </a></td>
+                      <td><button class="btn btn-danger" (click)="deleteBook(book._id)">
+                        Delete
+                      </button></td>
+                    </tr>
+                  </tbody>
+                </table>                 
+            </div>
+          </div>
+    </div>
+</div>

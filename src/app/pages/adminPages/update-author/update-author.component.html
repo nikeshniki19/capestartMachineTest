@@ -1,0 +1,29 @@
+<div class="container-fluid m-3">
+    <div class="jumbotron text-center">
+        <h2 class="display-4">Update Author</h2>
+        <p class="lead">Update author here!</p>
+    </div>
+    <div class="container p-4 bg-info">
+        <h4>Update Author</h4>
+        <div class="row bg-light rounded m-2">
+            
+            <div class="col-md-6 offset-md-2">
+                <form (ngSubmit)="updateAuthor()" [formGroup]="formGroup">                    
+                    <div class="form-group">
+                        <p class="lead">Enter Author</p>
+                        <input 
+                        type="text" 
+                        class="form-control my-3"
+                        formControlName="name"
+                        autoFocus
+                        required
+                        placeholder="For Ex. Daniel"/>
+                        <button class="btn btn-outline-info">Update Author</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+        
+        
+    </div>
+</div>

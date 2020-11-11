@@ -1,0 +1,22 @@
+<div class="container-fluid m-3">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div *ngIf="book" class="card">
+                    <img [src]="imageurl" class="card-img-top mx-auto">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">{{book.name}}</h5>
+                      <p class="card-text">Category : {{book.category}}</p>
+                      <p class="card-text">Author : {{book.author}}</p>
+                      <p class="card-text">Publisher : {{book.publisher}}</p>
+                      <a *ngIf="availability" (click)="lendBook(book._id)" class="btn btn-warning">Lend Book</a>
+                      <a *ngIf="!availability" class="btn btn-danger">Book not available</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        
+    </div>
+</div>

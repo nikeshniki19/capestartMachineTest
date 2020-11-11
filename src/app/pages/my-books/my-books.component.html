@@ -1,0 +1,34 @@
+<div class="container-fluid m-3">
+    <div class="jumbotron text-center">
+        <h2 class="display-4">Your Books</h2>
+        <p class="lead">View or Return your lended books here!</p>
+    </div>
+    <div class="container p-4 bg-info m-3">
+        
+      <h4>All Books</h4>
+      <div *ngIf="mybooks" class="row bg-light rounded m-2">
+        <div class="col">                
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Book Name</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Publisher</th>
+                  <th scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of mybooks">
+                  <td>{{book.name}}</td>
+                  <td>{{book.author}}</td>
+                  <td>{{book.publisher}}</td>
+                  <td><a (click)="returnBook(book._id)" class="btn btn-danger">
+                    <span class="">Return Book</span>
+                </a></td>
+                </tr>
+              </tbody>
+            </table>                 
+        </div>
+      </div>
+  </div>
+</div>

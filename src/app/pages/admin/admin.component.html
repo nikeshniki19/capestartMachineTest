@@ -1,0 +1,45 @@
+<div class="container-fluid m-3">
+  <div class="jumbotron text-center">
+    <h2 class="display-4">Admin Dashboard</h2>
+    <p class="lead">Welcome admin!</p>
+  </div>
+  <div class="container p-4 bg-info">
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <h4 class="card-header bg-dark text-white">Admin Navigation</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a routerLink="/books-dashboard" class="nav-link text-success">
+                Manage Books
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a routerLink="/authors-dashboard" class="nav-link text-success">
+                Manage Authors
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a routerLink="/publishers-dashboard" class="nav-link text-success">
+                Manage Publishers
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="card mb-4">
+          <h4 class="card-header bg-dark text-white">Admin Information</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class="badge badge-success mr-2">Name:</span>{{user.name}}
+            </li>
+            <li class="list-group-item">
+              <span class="badge badge-success mr-2">E-mail:</span>{{user.email}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

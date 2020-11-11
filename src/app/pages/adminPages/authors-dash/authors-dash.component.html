@@ -1,0 +1,52 @@
+<div class="container-fluid m-3">
+    <div class="jumbotron text-center">
+        <h2 class="display-4">Authors Management</h2>
+        <p class="lead">Create, update or delete authors here!</p>
+    </div>
+    <div class="container p-4 bg-info">
+        <h4>Create Author</h4>
+        <div class="row bg-light rounded m-2">
+            
+            <div class="col-md-6 offset-md-2">
+                <form (ngSubmit)="createAuthor()" [formGroup]="formGroup">                    
+                    <div class="form-group">
+                        <p class="lead">Enter Author</p>
+                        <input 
+                        type="text" 
+                        class="form-control my-3"
+                        formControlName="name"
+                        autoFocus
+                        required
+                        placeholder="For Ex. Daniel"/>
+                        <button class="btn btn-outline-info">Create Category</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+        <h4>Manage Authors</h4>
+        <div *ngIf="authors" class="row bg-light rounded m-2">
+            <div class="col-md-9 offset-md-2">
+                <p class="lead">Total {{authors.length}} Authors</p>
+              
+                    <div *ngFor="let author of authors" class="row text-center mb-2 ">
+                    <div class="col-3">
+                      <h3 class="text-left">{{author.name}}</h3>
+                    </div>
+                    <div class="col-3">
+                      <a routerLink="/update-author/{{author._id}}"
+                      class="btn btn-success"
+                      >
+                        <span class="">Update</span>
+                    </a>
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-danger" (click)="deleteAuthor(author._id)">
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                 
+            </div>
+          </div>
+    </div>
+</div>

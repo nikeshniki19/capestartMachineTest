@@ -1,0 +1,84 @@
+<div class="container ">
+
+    <div class="row mt-5">
+      <div class="col col-6 offset-3">
+        <div class="card">
+  
+          <div class="card-header text-center text-info text-uppercase">
+            Sign Up form
+          </div>
+  
+          <div class="card-body ">
+            <form (ngSubmit)="onSubmitSignup()" [formGroup]="formGroup">
+              <div class="form-group row">
+
+                <label for="name" class="col-sm-3 col-form-label">Name</label>
+  
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email"
+                    formControlName="name" />
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger m-1">
+                      <div *ngIf="name.errors.required">
+                        Name is required.
+                      </div>
+                    </div>
+                </div>
+                
+  
+  
+              </div>
+              <div class="form-group row">
+
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
+  
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email"
+                    formControlName="email" />
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger m-1">
+                      <div *ngIf="email.errors.required">
+                        Email is required.
+                      </div>
+                      <div *ngIf="email.errors.email">
+                        Email is not valid.
+                      </div>
+                    </div>
+                </div>
+                
+  
+  
+              </div>
+  
+              <div class="form-group row">
+  
+                <label for="password" class="col-sm-3 col-form-label">Password</label>
+  
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+                    formControlName="password" />
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger m-1">
+                      <div *ngIf="password.errors.required">
+                        Password is required.
+                      </div>
+                      <div *ngIf="password.errors.minlength">
+                        Password should be 5 letters minimum.
+                      </div>
+                    </div>
+                  
+                </div>
+  
+              </div>
+  
+              <div class=" text-center">
+                <button class="btn btn-primary " type="submit">
+                  Sign Up
+                </button>
+              </div>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

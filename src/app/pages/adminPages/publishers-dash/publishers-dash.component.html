@@ -1,0 +1,52 @@
+<div class="container-fluid m-3">
+    <div class="jumbotron text-center">
+        <h2 class="display-4">Pubishers Management</h2>
+        <p class="lead">Create, update or delete publishers here!</p>
+    </div>
+    <div class="container p-4 bg-info">
+        <h4>Create Publisher</h4>
+        <div class="row bg-light rounded m-2">
+            
+            <div class="col-md-6 offset-md-2">
+                <form (ngSubmit)="createPublisher()" [formGroup]="formGroup">                    
+                    <div class="form-group">
+                        <p class="lead">Enter Publisher</p>
+                        <input 
+                        type="text" 
+                        class="form-control my-3"
+                        formControlName="name"
+                        autoFocus
+                        required
+                        placeholder="For Ex. Daniel Publications"/>
+                        <button class="btn btn-outline-info">Create Publisher</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+        <h4>Manage Publishers</h4>
+        <div *ngIf="publishers" class="row bg-light rounded m-2">
+            <div class="col-md-9 offset-md-2">
+                <p class="lead">Total {{publishers.length}} Publishers</p>
+              
+                    <div *ngFor="let publisher of publishers" class="row text-center mb-2 ">
+                    <div class="col-3">
+                      <h3 class="text-left">{{publisher.name}}</h3>
+                    </div>
+                    <div class="col-3">
+                      <a routerLink="/update-publisher/{{publisher._id}}"
+                      class="btn btn-success"
+                      >
+                        <span class="">Update</span>
+                    </a>
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-danger" (click)="deletePublisher(publisher._id)">
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                 
+            </div>
+          </div>
+    </div>
+</div>
