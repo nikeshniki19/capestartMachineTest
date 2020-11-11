@@ -14,10 +14,12 @@ export class HomeComponent implements OnInit {
   booksByCategory: any;
   booksByAuthor: any;
   booksByPublisher: any;
+  booksByBookName:any;
 
   category:any;
   author:any;
   publisher:any;
+  bookName:any;
 
 
   constructor( private adminService: AdminService, private userService:UserService) {
@@ -46,19 +48,23 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-  getBooksByAuthor(){
-    this.userService.getBooksByAuthor({author:this.author}).subscribe(
-      (data) => {
-        this.booksByAuthor = data;
-      }
-    )
+  getBooksByAuthor(author){
+    this.booksByAuthor = this.books.filter(function(e){
+      return e.author === author
+    })
   }
-  getBooksByPublisher(){
-    this.userService.getBooksByPublisher({publisher:this.publisher}).subscribe(
-      (data) => {
-        this.booksByPublisher = data;
-      }
-    )
+  getBooksByPublisher(publisher){
+    console.log(this.books.filter(function(e){
+      return e.publisher === publisher
+    }))
+    this.booksByPublisher = this.books.filter(function(e){
+      return e.publisher === publisher
+    })
+  }
+  getBooksByName(name){
+    this.booksByBookName = this.books.filter(function(e){
+      return e.name === name
+    })
   }
 
 }

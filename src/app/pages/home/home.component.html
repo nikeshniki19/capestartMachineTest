@@ -33,6 +33,46 @@
   </div>
   <div class="container p-4 bg-info m-3">
 
+    <h4>Search Books By Name</h4>
+    <div class="row m-2">
+
+      <div class="col-md-6 offset-md-2">
+        
+          <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="bookName" class="form-control" placeholder="Book Name">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="button" (click)="getBooksByName(bookName)">Search</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div *ngIf="booksByBookName" class="row bg-light rounded m-2">
+      <div class="col">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Publisher</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of booksByBookName">
+              <td>{{book.name}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.publisher}}</td>
+              <td><a routerLink="view-book/{{book._id}}" class="btn btn-primary">
+                  <span class="">View Book</span>
+                </a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="container p-4 bg-info m-3">
+
     <h4>Search Books By Category</h4>
     <div class="row m-2">
 
@@ -89,7 +129,7 @@
           <div class="input-group mb-3">
             <input type="text" [(ngModel)]="author" class="form-control" placeholder="Author Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
-              <button class="btn btn-secondary" type="button" (click)="getBooksByAuthor()">Search</button>
+              <button class="btn btn-secondary" type="button" (click)="getBooksByAuthor(author)">Search</button>
             </div>
           </div>
       </div>
@@ -106,7 +146,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let book of books">
+            <tr *ngFor="let book of booksByAuthor">
               <td>{{book.name}}</td>
               <td>{{book.author}}</td>
               <td>{{book.publisher}}</td>
@@ -128,7 +168,7 @@
           <div class="input-group mb-3">
             <input type="text" [(ngModel)]="publisher" class="form-control" placeholder="Publisher Name">
             <div class="input-group-append">
-              <button class="btn btn-secondary" type="button" (click)="getBooksByPublisher()">Search</button>
+              <button class="btn btn-secondary" type="button" (click)="getBooksByPublisher(publisher)">Search</button>
             </div>
           </div>
     
@@ -146,7 +186,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let book of books">
+            <tr *ngFor="let book of booksByPublisher">
               <td>{{book.name}}</td>
               <td>{{book.author}}</td>
               <td>{{book.publisher}}</td>
